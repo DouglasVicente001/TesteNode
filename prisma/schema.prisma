@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Palavra {
+  id            Int       @id @default(autoincrement())
+  palavra       String    @unique
+  criado_em     DateTime  @default(now())
+  modificado_em DateTime  @updatedAt
+  relacao       Relacao[] @relation("palavra")
+
+  @@map("palavras")
+}
+
+model Etiqueta {
+  id            Int       @id @default(autoincrement())
+  etiqueta      String    @unique
+  criado_em     DateTime  @default(now())
+  modificado_em DateTime  @updatedAt
+  relacao       Relacao[] @relation("etiqueta")
+
+  @@map("etiquetas")
+}
+
+model Relacao {
+  palavra    Palavra  @relation("palavra", fields: [palavraId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  palavraId  Int
+  etiqueta   Etiqueta @relation("etiqueta", fields: [etiquetaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  etiquetaId Int
+  criacao_em DateTime @default(now())
+  modificado_em DateTime  @updatedAt
+  @@id([palavraId, etiquetaId])
+  @@map("relacao")
+}
+
+model Usuario {
+  id String @id @default(uuid())
+  email String @unique
+  senha String
+  criado_em DateTime @default(now())
+  modificado_em DateTime @updatedAt
+
+  @@map("usuarios")
+}

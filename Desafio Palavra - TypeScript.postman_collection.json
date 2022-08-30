@@ -1,0 +1,770 @@
+{
+	"info": {
+		"_postman_id": "3dee3e8a-0e00-419b-9e55-9cb28148f935",
+		"name": "Desafio Palavra - TypeScript",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21798384"
+	},
+	"item": [
+		{
+			"name": "Palavras",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlYzhlMWNiLWJhMDktNDZkMy04NmI4LWI5MWQyNWZmMDE4NyIsImlhdCI6MTY2MTQ1NjA3OCwiZXhwIjoxNjYxNTQyNDc4fQ.zMVr2s1IAVFO94b7FK6YNgCFw0KjNsGstrdhO-MLbas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"palavra\": \"Gatdassdas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/palavras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"palavras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get por nome",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/palavras/nome/?palavra=cavalo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"palavras",
+								"nome",
+								""
+							],
+							"query": [
+								{
+									"key": "palavra",
+									"value": "cavalo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"palavra\": \"movel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/palavras",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"palavras"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/palavras/?id=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"palavras",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"palavra\": \"Gata\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/palavras/?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"palavras",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Etiquetas",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"etiqueta\": \"Animaal\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get por nome",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"etiqueta\": \"ser vivo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas/nome/?etiqueta=ser vivo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas",
+								"nome",
+								""
+							],
+							"query": [
+								{
+									"key": "etiqueta",
+									"value": "ser vivo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 32\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas/?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"etiqueta\": \"Móvel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas/?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Relação",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": [1,2]\r\n    ,\r\n    \"etiquetaId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas/relacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas",
+								"relacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"novaEtiquetaId\": 2,\r\n    \"novaPalavraId\": 1,\r\n    \"antigaEtiquetaId\": 1,\r\n    \"antigaPalavraId\": 13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/etiquetas/relacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"etiquetas",
+								"relacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"etiquetaId\" : 2,\r\n    \"palavraId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/relacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"relacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jonny\",\r\n    \"senha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/usuarios/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jonny\",\r\n    \"senha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/usuarios/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlYzhlMWNiLWJhMDktNDZkMy04NmI4LWI5MWQyNWZmMDE4NyIsImlhdCI6MTY2MTQ1NjA3OCwiZXhwIjoxNjYxNTQyNDc4fQ.zMVr2s1IAVFO94b7FK6YNgCFw0KjNsGstrdhO-MLbas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get por email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NmRmNzE5LTc5NWMtNDgzNC04M2U3LTAwZGViNjVkNmIxOCIsImlhdCI6MTY2MTQ0NDMxNCwiZXhwIjoxNjYxNTMwNzE0fQ.tz5AMcLMYQx6dIb1cKhkLgfilJX0di2f1aRDQwxZtJs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Davi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/usuarios/email?email=jonny",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"usuarios",
+								"email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "jonny"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlYzhlMWNiLWJhMDktNDZkMy04NmI4LWI5MWQyNWZmMDE4NyIsImlhdCI6MTY2MTQ1NjA3OCwiZXhwIjoxNjYxNTQyNDc4fQ.zMVr2s1IAVFO94b7FK6YNgCFw0KjNsGstrdhO-MLbas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/usuarios/?id=bd965da5-5b9d-4366-827b-862a8e10b4c1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"usuarios",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "bd965da5-5b9d-4366-827b-862a8e10b4c1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlYzhlMWNiLWJhMDktNDZkMy04NmI4LWI5MWQyNWZmMDE4NyIsImlhdCI6MTY2MTQ1NjA3OCwiZXhwIjoxNjYxNTQyNDc4fQ.zMVr2s1IAVFO94b7FK6YNgCFw0KjNsGstrdhO-MLbas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"1\",\r\n    \"senha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/usuarios/?id=dec8e1cb-ba09-46d3-86b8-b91d25ff0187",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"usuarios",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "dec8e1cb-ba09-46d3-86b8-b91d25ff0187"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,728 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API Palavras-Etiquetas Com TypeScript",
+        "version": "1.0.0"
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "paths": {
+        "/palavras/nome/": {
+            "get": {
+                "description": "Busca uma palavra especifica",
+                "tags": [
+                    "Palavras"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "palavra",
+                        "required": true,
+                        "description": "Nome da palavra para pesquisar",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Palavra não encontrada"
+                    }
+                }
+            }
+        },
+        "/palavras": {
+            "get": {
+                "description": "Busca todas as palavras cadastradas",
+                "tags": [
+                    "Palavras"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Nenhuma palavra cadastrada"
+                    }
+                }
+            },
+            "post": {
+                "description": "Cadastra uma nova palavra",
+                "tags": [
+                    "Palavras"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "palavra": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "palavra": "Cachorro"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Palavra já cadastrada"
+                    },
+                    "201": {
+                        "description": "Palavra Criada"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edita uma palavra existente pelo ID",
+                "tags": [
+                    "Palavras"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "ID da palavra para alterar",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "palavra": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "palavra": "Cachorro"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Palavra não cadastrada"
+                    },
+                    "409": {
+                        "description": "Palavra já cadastrada"
+                    },
+                    "200": {
+                        "description": "Palavra atualizada"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta uma palavra existente pelo ID",
+                "tags": [
+                    "Palavras"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "ID da palavra para excluir",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Palavra não cadastrada"
+                    },
+                    "200": {
+                        "description": "Palavra excluída"
+                    }
+                }
+            }
+        },
+        "/etiquetas/nome": {
+            "get": {
+                "description": "Busca uma etiqueta especifica",
+                "tags": [
+                    "Etiquetas"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "etiqueta",
+                        "required": true,
+                        "description": "Nome da etiqueta para pesquisar",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Etiqueta não encontrada"
+                    }
+                }
+            }
+        },
+        "/etiquetas": {
+            "get": {
+                "description": "Busca todas as etiquetas cadastradas",
+                "tags": [
+                    "Etiquetas"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Nenhuma etiqueta cadastrada"
+                    }
+                }
+            },
+            "post": {
+                "description": "Cadastra uma nova etiqueta",
+                "tags": [
+                    "Etiquetas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "etiqueta": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "etiqueta": "Animal"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "409": {
+                        "description": "Etiqueta já cadastrada"
+                    },
+                    "201": {
+                        "description": "Etiqueta Criada"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edita uma etiqueta existente pelo ID",
+                "tags": [
+                    "Etiquetas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "ID da etiqueta para alterar",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "palavra": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "etiqueta": "Domestico"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Etiqueta não cadastrada"
+                    },
+                    "409": {
+                        "description": "Etiqueta já cadastrada"
+                    },
+                    "200": {
+                        "description": "Etiqueta atualizada"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta uma etiqueta existente pelo ID",
+                "tags": [
+                    "Etiquetas"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "ID da etiqueta para excluir",
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Etiqueta não cadastrada"
+                    },
+                    "200": {
+                        "description": "Etiqueta excluída"
+                    }
+                }
+            }
+        },
+        "/usuarios/email": {
+            "get": {
+                "description": "Busca um usuário especifico",
+                "tags": [
+                    "Usuários"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "email",
+                        "required": true,
+                        "description": "Email do usuário para pesquisar",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Usuário não encontrao"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/usuarios": {
+            "get": {
+                "description": "Busca todas as usuários cadastrados",
+                "tags": [
+                    "Usuários"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Nenhum usuário cadastrado"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            },
+            "post": {
+                "description": "Cadastra um novo usuário",
+                "tags": [
+                    "Usuários"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "senha": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "email": "teste@gft.com",
+                                    "senha": "senha123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "409": {
+                        "description": "Email já cadastrado"
+                    },
+                    "201": {
+                        "description": "Cadastro Realizado"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edita um usuário existente pelo ID",
+                "tags": [
+                    "Usuários"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "UUID do usuário para alterar",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "senha": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "email": "jonny@gft.com",
+                                    "senha": "1234567"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Email não encontrado"
+                    },
+                    "409": {
+                        "description": "Email já cadastrado"
+                    },
+                    "200": {
+                        "description": "Usuário atualizado"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta um usuário existente pelo ID",
+                "tags": [
+                    "Usuários"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "required": true,
+                        "description": "UUID do usuário para excluir",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    },
+                    "200": {
+                        "description": "Usuário excluído"
+                    }
+                }
+            }
+        },
+        "/usuarios/login": {
+            "post": {
+                "description": "Login com usuário cadastrado, retorna token para acessar os end-points",
+                "tags": [
+                    "Usuários"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "senha": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "email": "teste@gft.com",
+                                    "senha": "senha123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "409": {
+                        "description": "Email ou senha incorretos"
+                    },
+                    "200": {
+                        "description": "Login bem-sucedido"
+                    }
+                }
+            }
+        },
+        "/relacao":{
+            "get": {
+                "description": "Busca todas as relações cadastrados",
+                "tags": [
+                    "Relações"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Created"
+                    },
+                    "404": {
+                        "description": "Nenhuma relação cadastrada"
+                    }
+                }
+            },
+            "post": {
+                "description": "Cadastra uma nova relação",
+                "tags": [
+                    "Relações"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "palavraId": {
+                                        "type": "number"
+                                    },
+                                    "etiquetaId": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "palavraId": 5,
+                                    "etiquetaId": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Etiqueta ou Palavra não encontradas"
+                    },
+                    "201": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edita a relação pelo ID",
+                "tags": [
+                    "Relações"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "novaEtiquetaId": {
+                                        "type": "number"
+                                    },
+                                    "novaPalavraId": {
+                                        "type": "number"
+                                    },
+                                    "antigaEtiquetaId":{
+                                        "type": "number"
+                                    },
+                                    "antigaPalavraId":{
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "novaEtiquetaId": 2,
+                                    "novaPalavraId": 2,
+                                    
+                                    "antigaEtiquetaId": 1,
+                                    "antigaPalavraId": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Dados para relação não cadastrados"
+                    },
+                    "409": {
+                        "description": "Relação já cadastrada"
+                    },
+                    "200": {
+                        "description": "Rela~ção alterda"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta uma relação pelo ID da palavra e ID Etiqueta que estão se relacionando",
+                "tags": [
+                    "Relações"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "etiquetaId": {
+                                        "type": "number"
+                                    },
+                                    "palavraId": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "etiquetaId": 4,
+                                    "palavraId": 5
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Relação não encontrada"
+                    },
+                    "200": {
+                        "description": "Relação excluída"
+                    }
+                }
+            }
+
+        }
+    }
+}
